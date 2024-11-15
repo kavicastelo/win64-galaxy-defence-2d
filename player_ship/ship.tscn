@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cerx5qow0tiuv"]
+[gd_scene load_steps=22 format=3 uid="uid://cerx5qow0tiuv"]
 
 [ext_resource type="Texture2D" uid="uid://dph53450scr5a" path="res://assets/ship.png" id="1_css7l"]
 [ext_resource type="Script" path="res://player_ship/ship.gd" id="1_f5pl8"]
@@ -50,25 +50,63 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_boskw"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_yipq0"]
+atlas = ExtResource("10_u75v1")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovjtq"]
+atlas = ExtResource("10_u75v1")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38820"]
+atlas = ExtResource("10_u75v1")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15yhh"]
+atlas = ExtResource("10_u75v1")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hg8v"]
 atlas = ExtResource("10_u75v1")
 region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jcsh2"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4rwlv"]
 atlas = ExtResource("10_u75v1")
-region = Rect2(32, 16, 16, 16)
+region = Rect2(16, 16, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mmfqt"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_boskw")
+"texture": SubResource("AtlasTexture_yipq0")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jcsh2")
+"texture": SubResource("AtlasTexture_ovjtq")
 }],
 "loop": true,
-"name": &"default",
+"name": &"bank_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38820")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_15yhh")
+}],
+"loop": true,
+"name": &"bank_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1hg8v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4rwlv")
+}],
+"loop": true,
+"name": &"center",
 "speed": 10.0
 }]
 
@@ -85,8 +123,8 @@ autoplay = "center"
 [node name="Flame AnimatedSprite" type="AnimatedSprite2D" parent="Anchor"]
 position = Vector2(0, 16)
 sprite_frames = SubResource("SpriteFrames_mmfqt")
-autoplay = "default"
-frame_progress = 0.662282
+animation = &"center"
+autoplay = "center"
 
 [node name="MoveComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
 script = ExtResource("2_6c7aj")
