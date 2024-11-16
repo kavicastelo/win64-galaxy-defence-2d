@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://dbdrgss2cnrlm"]
+
+[ext_resource type="Script" path="res://enemies/enemy.gd" id="1_8n8jy"]
+[ext_resource type="Script" path="res://components/stats_component.gd" id="2_hmy44"]
+[ext_resource type="Script" path="res://components/move_component.gd" id="3_fgqep"]
+[ext_resource type="Script" path="res://components/scale_component.gd" id="4_ha3xe"]
+[ext_resource type="Script" path="res://components/flash_component.gd" id="5_cp6le"]
+[ext_resource type="Script" path="res://components/shake_component.gd" id="6_fcu5y"]
+
+[node name="Enemy" type="Node2D"]
+script = ExtResource("1_8n8jy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="StatsComponent" type="Node" parent="."]
+script = ExtResource("2_hmy44")
+
+[node name="MoveComponent" type="Node" parent="."]
+script = ExtResource("3_fgqep")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="ScaleComponent" type="Node" parent="."]
+script = ExtResource("4_ha3xe")
+
+[node name="FlashComponent" type="Node" parent="."]
+script = ExtResource("5_cp6le")
+
+[node name="ShakeComponent" type="Node" parent="."]
+script = ExtResource("6_fcu5y")
