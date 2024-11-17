@@ -36,7 +36,7 @@ size = Vector2(10, 8)
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_1o3yp")
 autoplay = "default"
-frame_progress = 0.733798
+frame_progress = 0.828534
 
 [node name="StatsComponent" parent="." index="1"]
 health = 6
