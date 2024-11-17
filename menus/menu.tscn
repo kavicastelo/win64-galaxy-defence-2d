@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://4654pofoj1vp"]
+[gd_scene load_steps=5 format=3 uid="uid://4654pofoj1vp"]
 
 [ext_resource type="PackedScene" uid="uid://bidj3gqy8ktma" path="res://effects/space_background.tscn" id="1_4npb3"]
+[ext_resource type="Script" path="res://menus/menu.gd" id="1_e660g"]
 [ext_resource type="LabelSettings" uid="uid://cdq3gyuel7064" path="res://fonts/title_label_settings.tres" id="2_3uqtb"]
 [ext_resource type="LabelSettings" uid="uid://b2sogq14orlao" path="res://fonts/default_label_settings.tres" id="3_lm54f"]
 
@@ -11,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_e660g")
 
 [node name="SpaceBackground" parent="." instance=ExtResource("1_4npb3")]
 
