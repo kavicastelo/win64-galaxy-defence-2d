@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://ddudmd2qr8nw8"]
+
+[ext_resource type="PackedScene" uid="uid://dbdrgss2cnrlm" path="res://enemies/enemy.tscn" id="1_q5jv4"]
+[ext_resource type="Texture2D" uid="uid://cj2i2qhrlwn0l" path="res://assets/yellow_enemy.png" id="2_clbs1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vlnd1"]
+atlas = ExtResource("2_clbs1")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckorj"]
+atlas = ExtResource("2_clbs1")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1o3yp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vlnd1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckorj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x6o06"]
+size = Vector2(16, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j3lny"]
+size = Vector2(10, 8)
+
+[node name="YellowEnemy" instance=ExtResource("1_q5jv4")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_1o3yp")
+autoplay = "default"
+frame_progress = 0.733798
+
+[node name="StatsComponent" parent="." index="1"]
+health = 6
+
+[node name="MoveComponent" parent="." index="2"]
+velocity = Vector2(0, 10)
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="3"]
+position = Vector2(-2.98023e-08, 0)
+scale = Vector2(0.8, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
+shape = SubResource("RectangleShape2D_x6o06")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+shape = SubResource("RectangleShape2D_j3lny")
+
+[node name="ScoreComponent" parent="." index="12"]
+adjust_amount = 10
