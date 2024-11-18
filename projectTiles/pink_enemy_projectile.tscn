@@ -90,7 +90,7 @@ script = ExtResource("1_4c7hi")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Anchor"]
 sprite_frames = SubResource("SpriteFrames_ubn6k")
 autoplay = "default"
-frame_progress = 0.934796
+frame_progress = 0.392553
 
 [node name="HitboxComponent" type="Area2D" parent="Anchor"]
 collision_layer = 0
