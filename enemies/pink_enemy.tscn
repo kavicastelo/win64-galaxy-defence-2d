@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://1to11nbb16u7"]
+
+[ext_resource type="PackedScene" uid="uid://dbdrgss2cnrlm" path="res://enemies/enemy.tscn" id="1_d6vnv"]
+[ext_resource type="Texture2D" uid="uid://co346v6vrg2a3" path="res://assets/pink_enemy.png" id="2_whvhr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3k88v"]
+atlas = ExtResource("2_whvhr")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qc818"]
+atlas = ExtResource("2_whvhr")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n74w5"]
+atlas = ExtResource("2_whvhr")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2pwjp"]
+atlas = ExtResource("2_whvhr")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_johe6"]
+atlas = ExtResource("2_whvhr")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_foq0d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3k88v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qc818")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n74w5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2pwjp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_johe6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_prkk3"]
+radius = 7.07107
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1yc1u"]
+radius = 6.08276
+
+[node name="PinkEnemy" instance=ExtResource("1_d6vnv")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_foq0d")
+autoplay = "default"
+frame_progress = 0.0890706
+
+[node name="StatsComponent" parent="." index="1"]
+health = 6
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="3"]
+position = Vector2(-4.76837e-07, -0.5)
+scale = Vector2(0.6, 0.55)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0"]
+shape = SubResource("CircleShape2D_prkk3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0"]
+shape = SubResource("CircleShape2D_1yc1u")
+
+[node name="ScoreComponent" parent="." index="12"]
+adjust_amount = 20
