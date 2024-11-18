@@ -31,7 +31,3 @@ func _ready() -> void:
 	fire_state.state_finished.connect(pause_state.enable)
 	pause_state.state_finished.connect(move_down_state.enable)
 	move_down_state.enable()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
