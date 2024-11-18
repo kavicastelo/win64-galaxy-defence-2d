@@ -1,11 +1,14 @@
-[gd_scene load_steps=15 format=3 uid="uid://1to11nbb16u7"]
+[gd_scene load_steps=18 format=3 uid="uid://1to11nbb16u7"]
 
 [ext_resource type="PackedScene" uid="uid://dbdrgss2cnrlm" path="res://enemies/enemy.tscn" id="1_d6vnv"]
 [ext_resource type="Script" path="res://enemies/pink_enemy.gd" id="2_tqsm4"]
 [ext_resource type="Texture2D" uid="uid://co346v6vrg2a3" path="res://assets/pink_enemy.png" id="2_whvhr"]
+[ext_resource type="Script" path="res://components/state_component.gd" id="3_jlfjj"]
 [ext_resource type="Script" path="res://components/move_component.gd" id="4_j4n3m"]
 [ext_resource type="Script" path="res://components/border_bounce_component.gd" id="5_11x8u"]
 [ext_resource type="Script" path="res://components/timed_state_componoent.gd" id="6_8g1ia"]
+[ext_resource type="Script" path="res://components/spawner_component.gd" id="8_6twwc"]
+[ext_resource type="PackedScene" uid="uid://qqme14t36wtx" path="res://projectTiles/pink_enemy_projectile.tscn" id="9_834uw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3k88v"]
 atlas = ExtResource("2_whvhr")
@@ -62,7 +65,7 @@ script = ExtResource("2_tqsm4")
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_foq0d")
 autoplay = "default"
-frame_progress = 0.538985
+frame_progress = 0.635714
 
 [node name="StatsComponent" parent="." index="1"]
 health = 6
@@ -107,7 +110,16 @@ script = ExtResource("5_11x8u")
 actor = NodePath("../../..")
 move_component = NodePath("../MoveSideComponent")
 
-[node name="PauseState" type="Node" parent="States" index="2"]
+[node name="FireState" type="Node" parent="States" index="2"]
+unique_name_in_owner = true
+script = ExtResource("3_jlfjj")
+
+[node name="ProjectileSpawnerComponent" type="Node2D" parent="States/FireState" index="0"]
+unique_name_in_owner = true
+script = ExtResource("8_6twwc")
+scene = ExtResource("9_834uw")
+
+[node name="PauseState" type="Node" parent="States" index="3"]
 unique_name_in_owner = true
 script = ExtResource("6_8g1ia")
 duration = 3.0
