@@ -16,10 +16,5 @@ func _ready() -> void:
 		get_tree().change_scene_to_file("res://menus/game_over.tscn")
 	)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 func update_score_label(new_score: int) -> void:
 	score_label.text = "Score: " + str(new_score)
