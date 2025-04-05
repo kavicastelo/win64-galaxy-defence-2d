@@ -1,4 +1,4 @@
-# Galaxy Defence
+# Win64 Galaxy Defence 2D Game
 Galaxy Defence is an exciting 2D shooting game built using the [Godot Engine](https://godotengine.org/). Protect your spaceship from waves of alien invaders by strategically destroying enemies and managing your resources.
 
 ## Features
